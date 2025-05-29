@@ -13,7 +13,7 @@ function App() {
   const [error, setError] = useState(null);
 
   // Replace this URL with your Railway deployment URL
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://your-railway-app.railway.app';
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://football-match-website.onrender.com';
 
   useEffect(() => {
     // Updated to use the /matches endpoint
