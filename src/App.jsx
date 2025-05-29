@@ -12,8 +12,12 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Replace this URL with your Railway deployment URL
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://your-railway-app.railway.app';
+
   useEffect(() => {
-    axios.get('http://localhost:3001/matches')
+    // Updated to use the /matches endpoint
+    axios.get(`${API_BASE_URL}/matches`)
       .then(res => {
         setMatches(res.data);
         setLoading(false);
@@ -23,7 +27,7 @@ function App() {
         setError('Failed to fetch matches. Please check your backend server.');
         setLoading(false);
       });
-  }, []);
+  }, [API_BASE_URL]);
 
   if (loading) return <LoadingState />;
   if (error) return <ErrorState error={error} />;
