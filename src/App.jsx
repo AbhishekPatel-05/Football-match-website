@@ -12,11 +12,10 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Replace this URL with your Railway deployment URL
+
   const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://football-match-website.onrender.com';
 
   useEffect(() => {
-    // Updated to use the /matches endpoint
     axios.get(`${API_BASE_URL}/matches`)
       .then(res => {
         setMatches(res.data);
